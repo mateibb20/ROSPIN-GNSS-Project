@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gnss reliability map</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><div><p class="eyebrow">ROSPIN / GNSS OBSERVATORY</p><h1>Gnss reliability map</h1></div></div>
+    </header>
+
+    <section class="control-strip" aria-label="Map controls">
+      <label class="control"><span>Observation day</span><select id="dateSelect"><option value="">No imported days</option></select></label>
+      <label class="control lens-control"><span>Map lens</span><select id="lensSelect"><option value="density">Flight density</option><option value="nic">NIC reliability</option><option value="coverage">ADS-B / MLAT coverage</option></select></label>
+      <div class="control-note"><span class="note-kicker">GRID</span><strong>0.1 degrees squares</strong><span>Romania + western Black Sea</span></div>
+    </section>
+
+    <section class="workspace">
+      <div id="map" aria-label="Interactive airspace map"></div>
+      <aside class="side-panel">
+        <div class="panel-heading"><div><h2 id="lensTitle">Flight density</h2></div><span class="date-badge" id="dateBadge">No day selected</span></div>
+        <div class="legend" id="legend"></div>
+        <div class="metrics">
+          <div class="metric"><span>Aircraft</span><strong id="aircraftMetric">—</strong></div>
+        </div>
+        <div class="empty-state" id="emptyState"><span class="empty-icon">+</span><strong>No grid data yet</strong><p>Place downloaded archives in <code>archives/</code>, run the processor, then refresh this view.</p></div>
+      </aside>
+    </section>
+    <footer><span>Source: local SQLite daily_grid summaries</span><span>Satellite tiles © Esri</span></footer>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/app.js"></script>
+</body>
+</html>
