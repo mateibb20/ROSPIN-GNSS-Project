@@ -15,7 +15,7 @@ let cells = [];
 let gridSizeDegrees = 0.1;
 const lenses = {
   density: { title: 'Flight density', description: 'Distinct aircraft observed in each grid cell.', field: 'distinct_aircraft', suffix: ' aircraft', colors: ['#d8eee0', '#8cc5a7', '#2c8e75', '#145b5b'], labels: ['0', '1–5', '6–20', '21+'], text: 'Density is shown by distinct aircraft, preventing repeated reports from inflating the count.' },
-  nic: { title: 'NIC reliability', description: 'Aircraft-level share of cells with persistent low-NIC behavior.', field: 'low_nic_aircraft_ratio', suffix: '% low NIC', colors: ['#2c8e75', '#8cc5a7', '#e7b94f', '#d95f4e'], labels: ['0–2%', '2–10%', '10–25%', '25%+'], text: 'Only aircraft with valid ADS-B NIC are included. MLAT-only observations remain context, not NIC evidence.' },
+  nic: { title: 'Low NIC percentile', description: 'Aircraft-level share of cells with persistent low-NIC behavior.', field: 'low_nic_aircraft_ratio', suffix: '% low NIC', colors: ['#2c8e75', '#8cc5a7', '#e7b94f', '#d95f4e'], labels: ['0–2%', '2–10%', '10–25%', '25%+'], text: 'Only aircraft with valid ADS-B NIC are included. MLAT-only observations remain context, not NIC evidence.' },
   coverage: { title: 'ADS-B / MLAT coverage', description: 'Observation mix showing where each position source contributes.', field: 'adsb_observations', suffix: ' ADS-B obs', colors: ['#d8eee0', '#8cc5a7', '#2c8e75', '#145b5b'], labels: ['0', '1–100', '101–500', '500+'], text: 'Use this lens to separate aircraft-reported integrity from MLAT-derived position coverage.' }
 };
 function formatNumber(value) { return Number(value || 0).toLocaleString(); }
